@@ -1,0 +1,23 @@
+<ion-content>
+  <body>
+    <nav>
+      <a [routerLink]="['/home']">Inicio</a>
+      <h1>LOGIN</h1>
+  </nav>
+
+    <div class="login-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" class="avatar" alt="Avatar Image">
+      <form [formGroup]="datos" (ngSubmit)="InicSes()">
+        <!-- USERNAME INPUT -->
+        <label for="user">Usuario</label>
+        <input type="text" placeholder="Introduza Usuario" formControlName="user">
+        <!-- PASSWORD INPUT -->
+        <label for="pass">Contraseña</label>
+        <input type="password" placeholder="Introduza Contraseña" formControlName="pass">
+        <input type="submit" [disabled]="!datos.valid" value="Ingresar">
+        <re-captcha (resolved)="captchaResolved($event)" siteKey="YOUR_SITE_KEY"></re-captcha>
+      </form>
+    </div>
+  </body>
+ 
+</ion-content>

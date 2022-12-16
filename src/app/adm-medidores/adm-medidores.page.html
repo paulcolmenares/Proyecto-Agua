@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>administrar medidores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of list_medidor" button=true>
+    <ion-card-header>
+      <ion-card-title color="primary">{{item.marca +" "+ item.serial}}</ion-card-title>
+      <ion-item>
+        <ion-card-subtitle color="success">{{ item.fechaInstalacion | date }} / {{item.reg_Inic}}</ion-card-subtitle>
+        <ion-icon name="trash" (click)="borrar(item)" size="small"></ion-icon>
+      </ion-item>
+    </ion-card-header>
+  </ion-card>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button href="/add-medidores">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <form [formGroup]="asoci" (ngSubmit)="asociar()">
+    <ion-list>
+      <ion-radio-group formControlName="soc">
+        <ion-list-header>
+          <ion-label>Socios</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let item of list_socios">
+          <ion-label>{{item.apellidos +" "+ item.nombres}}</ion-label>
+          <ion-radio slot="start" [value]="item.soc"></ion-radio>
+          
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  
+    <ion-list>
+      <ion-item>
+        <ion-select interface="popover" placeholder="Seleccione medidor" formControlName="med">
+          <ion-select-option *ngFor="let med of list_medidor" [value]="med.id_Medidor">
+            {{med.marca}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-button type="submit" slot="end" [disabled]="!asoci.valid">Asignar</ion-button>
+    </ion-item>
+  </form>
+  
+  </ion-content>

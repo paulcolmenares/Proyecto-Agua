@@ -1,0 +1,23 @@
+
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { LoginPageRoutingModule } from './login-routing.module';
+
+import { LoginPage } from './login.page';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { NgModule } from '@angular/core';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    ReactiveFormsModule,
+    LoginPageRoutingModule,IonicStorageModule.forRoot()
+  ],
+  declarations: [LoginPage]
+})
+export class LoginPageModule {}

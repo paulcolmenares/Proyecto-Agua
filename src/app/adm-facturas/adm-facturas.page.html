@@ -1,0 +1,61 @@
+<ion-content>
+  <ion-card *ngFor="let item of list_fact" button=true>
+    <ion-card-header>
+      <ion-card-title color="primary">{{item.razonsocial +"/"+ item.nit}}</ion-card-title>
+      <ion-item>
+        <ion-card-subtitle color="success">{{ item.periodo }} / {{item.monto | number: '1.2-2'}}</ion-card-subtitle>
+        <ion-icon name="trash" (click)="borrar(item)" size="small"></ion-icon>
+        <ion-icon name="mail" (click)="imprimir(item)" size="small"></ion-icon>
+      </ion-item>
+      <div id="contenido{{item.id}}" hidden>
+        <table class="default" text-align: center width="75%">
+          <tr>
+            <td text-align: left colspan="3" src="data:image/png;base64,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"></td>
+            <td text-align: left colspan="2" face="Arial Black" size="1px">PROYECTO DE AGUA<br>C. Domingo Paz Esq Santa Cruz, Barrio La Pampa,<br>Ciudad de Tarija<br size="2">Factura N° {{item.id}}</td>
+          </tr>
+          <tr color="238, 238, 238 ">
+            <td colspan="3" size="5" face="Arial Black">NOMBRE/RAZON SOCIAL: {{item.razonsocial}}<br>NIT/CI:{{item.nit}} <br><br></td>
+            <td colspan="2">TOTAL A PAGAR:<br style="font-size: 5px; font-family: Arial Black;">{{item.monto}}<br>{{NumeroALetras(item.monto,"Bs")}}<br><br></td>
+          </tr>
+          <tr color="238, 238, 238 ">
+            <td colspan="3"size="2" face="Arial Black">NO. DE SERVICIO :<br size="2" face="Arial Black"></td>
+            <td colspan="2"size="2" face="Arial Black">PERIODO DE FACTURADO :{{item.periodo}}</td>
+          </tr>
+          <tr color="238, 238, 238 ">
+            <td size="2" face="Arial Black">TARIFA: </td>
+            <td size="2" face="Arial Black">NO. MEDIDOR: </td>
+            <td size="2" face="Arial Black">MULTIPLICADOR: </td>
+            <td size="2" face="Arial Black">LIMITE DE PAGO: </td>
+            <td size="2" face="Arial Black">CORTE A PARTIR:</td>
+          </tr>
+        </table>
+        <table class="default" text-alaing: center width="75%">
+          <tr color="238, 238, 238 ">
+            <th size="5" >Concepto</th>
+            <th size="5" >Lectura actual<br>Medida O Estimada </th>
+            <th size="5" >Lectura anterior<br>Medida O Estimada </th>
+            <th size="5" >Total periodo 
+            <th size="5" >Subtotal<br>periodo</th>
+          </tr>
+          <tr>
+            <td size="3" face="Arial Black">Consumo (m3)</td>
+            <td text-alaing: right size="3"></td>
+            <td text-alaing: right size="3"></td>
+            <td size="3"><br></td>
+            <td text-alaing: left size="1"></td>
+            
+          </tr>
+        </table>
+        <table class="default" text-alaing:center width="75%">
+          <tr>
+          <td text-alaing:center src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png" height="100px" width="100px"></td> 
+          <td colspan="4" text-alaing:center src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/EAN13.svg/800px-EAN13.svg.png" height="100px"></td>
+          <td colspan="2" size="4" face="Arial Black">{{item.monto}}<br size="1">{{NumeroALetras(item.monto,"Bs")}}</td>
+            </tr>
+            </table>
+      </div>  
+        
+    </ion-card-header>
+  </ion-card>
+  </ion-content>
+  

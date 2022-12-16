@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>administrar usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="UserRol" (ngSubmit)="Guardar()">
+    <ion-list>
+      <ion-radio-group formControlName="usr">
+        <ion-list-header>
+          <ion-label>Usuario</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let item of list_usuarios">
+          <ion-label>{{item.usr}}</ion-label>
+          <ion-radio slot="start" [value]="item.usr"></ion-radio>
+          
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  
+    <ion-list>
+      <ion-item>
+        <ion-select interface="popover" placeholder="Seleccione Rol" formControlName="rol">
+          <ion-select-option *ngFor="let rol of list_roles" [value]="rol.id">
+            {{rol.codigo}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-button type="submit" slot="end" [disabled]="!UserRol.valid">Asignar</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

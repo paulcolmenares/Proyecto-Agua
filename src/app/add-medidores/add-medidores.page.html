@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-medidores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="new_medidor" (ngSubmit)="Guardar()">
+  <ion-item color="medium">
+    <ion-label position="floating">Marca</ion-label>
+    <ion-input clearInput formControlName="marca"></ion-input>
+  </ion-item>
+  <ion-item color="secondary">
+    <ion-label position="floating">Serial</ion-label>
+    <ion-input clearInput formControlName="serial"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Registro Inicial</ion-label>
+    <ion-input type="number" step="any" clearInput formControlName="reg_inic"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Fecha Instalación</ion-label>
+    <ion-datetime-button datetime="date1"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="date1" presentation="date" formControlName="fech_inst"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+  <ion-item>
+    <ion-button type="submit" slot="end" [disabled]="!new_medidor.valid">Guardar</ion-button>
+  </ion-item>
+</form>
+
+</ion-content>

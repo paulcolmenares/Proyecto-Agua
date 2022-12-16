@@ -1,0 +1,7 @@
+{
+  "name": "Proyecto-Agua",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

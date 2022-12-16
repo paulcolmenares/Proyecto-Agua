@@ -1,0 +1,28 @@
+
+
+
+<ion-icon name="home"></ion-icon>
+
+<ion-content>
+    <ion-item>
+      <ion-label slot="start">Medidor</ion-label>
+      <ion-select name="medi" [(ngModel)]="medi" slot="start" (ionChange)="activar()">
+        <ion-select-option *ngFor="let r of list_medidores" [value]="r">{{r.marca +"/"+r.serial}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-list *ngIf="list_lecturas">
+      <ion-item *ngFor="let l of list_lecturas" class="lecturas">
+        <ion-label slot="start">{{l.fecha | date}}</ion-label>
+        <ion-label slot="start">{{l.lectura | number : '1.3-3'}}</ion-label>
+        <ion-button *ngIf="!l.estado" (click)="facturar(l)" slot="end" title="Facturar">
+          <ion-icon slot="icon-only" name="reader" size="small">
+          </ion-icon></ion-button> 
+      </ion-item>
+    </ion-list>
+    <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="medi" szize="small">
+      <ion-fab-button href="/add-lecturaciones">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>

@@ -1,0 +1,92 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #2980b9;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, hsla(204, 64%, 44%, 0.625)), url(https://surenergy.com.bo/assets/images/que_hacemos/portadas/portada_agua_potable.png);
+    background: linear-gradient(to right, hsla(0, 0%, 100%, 0.678), hsla(196, 93%, 70%, 0.693), hsla(204, 64%, 44%, 0.551)), url(https://surenergy.com.bo/assets/images/que_hacemos/portadas/portada_agua_potable.png);
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+  }
+  h1{
+    text-align: center;
+    color :#414141
+  }
+  nav{
+    text-align: right;
+    padding: 30px 20px 10px 0;
+  }
+  
+  nav > a{
+    color:#414141;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 70px;
+  }
+  
+  nav > a:hover{
+    text-decoration: underline;
+  }
+  .login-box {
+    width: 320px;
+    height: 520px;
+    background: hsla(0, 0%, 68%, 0.526);
+    color: #414141;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 5px 30px;
+  }
+  
+  .login-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .login-box input[type="text"], .login-box input[type="password"] {
+    border: none;
+    border-bottom: 1px solid rgb(71, 68, 68);
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #414141;
+    font-size: 16px;
+  }
+
+  
+  .login-box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #414141;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+  }
+  
+  .login-box input[type="submit"]:hover {
+    cursor: pointer;
+    background: #07d4f8;
+    color: rgb(255, 252, 252);
+  }
+  
+  .login-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .login-box a:hover {
+    color: #fff;
+  }

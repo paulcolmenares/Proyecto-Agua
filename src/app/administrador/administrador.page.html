@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="light">
+      <ion-select name="sel" [(ngModel)]="sel" slot="end">
+        <ion-select-option *ngFor="let r of Roles" [value]="r">{{r.codigo}}
+        </ion-select-option>
+      </ion-select>
+      <ion-buttons slot="secondary">
+        <ion-button color="secondary" href="/home" title="Inicio">
+          <ion-icon slot="icon-only" name="home" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='LECTURADOR'" color="secondary" href="/socios" title="Socios">
+          <ion-icon slot="icon-only" name="people-sharp" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='LECTURADOR'" color="secondary" href="/adm-medidores" title="Medidores">
+          <ion-icon slot="icon-only" name="bag-check-outline" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='LECTURADOR'" color="secondary" href="/reportes" title="Reportes">
+          <ion-icon slot="icon-only" name="print" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='ADMIN'" color="secondary" href="/adm-usuarios" title="Usuarios">
+          <ion-icon name="print" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='SOCIO'" color="secondary" href="/adm-solicitudes" title="Solicitudes">
+          <ion-icon slot="icon-only" name="people-sharp" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='SOCIO'" color="secondary" href="/ver-lecturas" title="Lecturaciones">
+          <ion-icon slot="icon-only" name="bag-check-outline" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='SOCIO'" color="secondary" href="/reportes2" title="Reportes">
+          <ion-icon slot="icon-only" name="print" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='SOCIO'" color="secondary" href="/adm-facturas" title="Facturas">
+          <ion-icon slot="icon-only" name="card" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='CAJERO'" color="secondary" href="/lecturador" title="Consumos">
+          <ion-icon slot="icon-only" name="calendar-sharp" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='CAJERO'" color="secondary" href="/tarifas" title="Tarifas">
+          <ion-icon slot="icon-only" name="card" size="small"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="sel.codigo=='CAJERO'" color="secondary" href="/adm-facturas" title="Facturas">
+          <ion-icon slot="icon-only" name="card" size="small"></ion-icon>
+        </ion-button>
+  
+      </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>            

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>adicionar Tarifaa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="new_tarifa" (ngSubmit)="Guardar()">
+    <ion-item color="medium">
+      <ion-label position="stacked">Fecha</ion-label>
+      <ion-datetime-button datetime="date1"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="date1" presentation="date" formControlName="fecha"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+    <ion-item color="secondary">
+      <ion-label position="floating">Consumo Máximo</ion-label>
+      <ion-input clearInput formControlName="consumo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Costo Unitario</ion-label>
+      <ion-input type="number" step="any" clearInput formControlName="costo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button type="submit" slot="end" [disabled]="!new_tarifa.valid">Guardar</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <p style="text-align:center">
+        PROYECTO AGUA
+      </p>Socios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let item of listasocios" button=true>
+  <ion-card-header>
+    <ion-card-title id="foto{{item.id}}" color="secondary">{{item.apellidos +" "+ item.nombres}}</ion-card-title>
+    <ion-popover trigger="foto{{item.id}}" triggerAction="click">
+      <ng-template> 
+        <ng-container *ngIf="item.foto; else elseTemplate">
+          <img [src]="item.foto" width=50px height=50px />
+      </ng-container>
+      <ng-template #elseTemplate>
+          <img src="./../../assets/icon/favicon.png" width=50px height=50px />
+      </ng-template>
+      </ng-template>
+    </ion-popover>
+    <ion-item>
+      <ion-card-subtitle color="success">{{ item.celular}} / {{item.correo}}</ion-card-subtitle>
+      <ion-icon name="trash" (click)="borrar(item)" size="small"></ion-icon>
+    </ion-item>
+  </ion-card-header>
+</ion-card>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button [routerLink]="['/crear']">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

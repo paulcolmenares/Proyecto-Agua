@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>lecturas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label slot="start">Medidor</ion-label>
+    <ion-select name="medi" [(ngModel)]="medi" slot="start" (ionChange)="activar()">
+      <ion-select-option *ngFor="let r of list_medidores" [value]="r">{{r.marca +"/"+r.serial}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-list *ngIf="list_lecturas">
+    <ion-item *ngFor="let l of list_lecturas" class="lecturas">
+      <ion-label slot="start">{{l.fecha | date}}</ion-label>
+      <ion-label slot="start">{{l.lectura | number : '1.3-3'}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
